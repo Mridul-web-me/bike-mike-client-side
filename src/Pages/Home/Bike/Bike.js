@@ -2,6 +2,8 @@ import React from 'react'
 import './Bike.css'
 import { Card, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
+import PlaceOrder from '../../PlaceOrder/PlaceOrder';
+// import PlaceOrder from '../../PlaceOrder/PlaceOrder';
 
 const Bike = ({ bike }) => {
     const { _id, name, imgUrl, price, engine, topSpeed, mileage } = bike;
@@ -31,9 +33,12 @@ const Bike = ({ bike }) => {
                             <Card.Text> {price}</Card.Text>
                         </div>
                     </Card.Body>
-                    <Link to={`/placeOrder/${_id}`}>
-                        <button className="btn btn-warning">Buy: {name}</button>
-                    </Link>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Launch demo modal
+                    </button>
+                    <PlaceOrder
+                        bikes={bike}
+                    ></PlaceOrder>
                 </Card>
             </Col>
         </div>

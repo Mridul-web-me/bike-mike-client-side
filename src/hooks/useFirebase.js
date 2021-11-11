@@ -23,6 +23,7 @@ const useFirebase = () => {
                 const user = result.user;
                 setUser(user);
                 console.log(user);
+                saveUser(user.email, user.displayName, 'PUT');
             })
     }
 
@@ -92,6 +93,7 @@ const useFirebase = () => {
                 setError('');
                 verifyEmail();
                 setUserName();
+                saveUser(email, name, 'POST');
             })
             .catch(error => {
                 setError(error.message);
@@ -116,6 +118,20 @@ const useFirebase = () => {
                 console.log(result);
             })
     }
+
+
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:8080/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
+
     return {
         handleGoogleSignIn,
         toggleLogin,
