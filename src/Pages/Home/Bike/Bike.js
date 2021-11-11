@@ -4,7 +4,7 @@ import { Card, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
 const Bike = ({ bike }) => {
-    const { _id, name, imgUrl, price, review } = bike;
+    const { _id, name, imgUrl, price, engine, topSpeed, mileage } = bike;
     return (
         <div className="bike">
             <Col>
@@ -12,23 +12,27 @@ const Bike = ({ bike }) => {
                     <Card.Img variant="top" src={imgUrl} />
                     <Card.Body>
                         <div className="body1">
-                            {/* <Link to="/description">{name}</Link> */}
                             <div className="h3">{name}</div>
-                            <Card.Text>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                ( {review} Review )</Card.Text>
                         </div>
-                        <div className="body2">
-                            <div className="price">${price}</div>
+                        <div className="bodyText">
+                            <Card.Text>Engine:</Card.Text>
+                            <Card.Text> {engine}</Card.Text>
                         </div>
-
+                        <div className="bodyText">
+                            <Card.Text>Top Speed:</Card.Text>
+                            <Card.Text> {topSpeed}</Card.Text>
+                        </div>
+                        <div className="bodyText">
+                            <Card.Text>Mileage:</Card.Text>
+                            <Card.Text> {mileage}</Card.Text>
+                        </div>
+                        <div className="bodyText">
+                            <Card.Text>Price:</Card.Text>
+                            <Card.Text> {price}</Card.Text>
+                        </div>
                     </Card.Body>
-                    <Link to={`/description/${_id}`}>
-                        <button className="btn btn-warning">Book {name.toLowerCase()}</button>
+                    <Link to={`/placeOrder/${_id}`}>
+                        <button className="btn btn-warning">Buy: {name}</button>
                     </Link>
                 </Card>
             </Col>

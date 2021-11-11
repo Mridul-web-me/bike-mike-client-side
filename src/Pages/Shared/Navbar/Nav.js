@@ -11,7 +11,7 @@ function Nav() {
             <nav className="navbar navbar-expand-lg navbar-light bg-light ">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/home">
-                        <i className="far fa-compass"></i>Bikes
+                        <i class="fas fa-motorcycle"></i>Bikes
                         <span className="red">Mikes</span>
                     </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@ function Nav() {
                                 <Link className="nav-link" to="/about">About</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/destination">More Product</Link>
+                                <Link className="nav-link" to="/morebikes">More Product</Link>
                             </li>
                             <li className="nav-item dropdown">
 
@@ -72,8 +72,8 @@ function Nav() {
                         </ul>
                     </div>
                 </div>
-            </nav>
-        </div>
+            </nav >
+        </div >
 
     )
 }

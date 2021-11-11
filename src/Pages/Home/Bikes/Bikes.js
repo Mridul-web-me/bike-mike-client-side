@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Bike from '../Bike/Bike';
 import './Bikes.css'
 
 const Bikes = () => {
     const [bikes, setBikes] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:8080/bikes')
+        fetch('https://floating-oasis-79529.herokuapp.com/bikes')
             .then(res => res.json())
             .then(data => setBikes(data));
     }, [])
@@ -25,7 +26,9 @@ const Bikes = () => {
                         ></Bike>)
                     }
                 </Row>
-                <button>More Bikes</button>
+                <Link to='/morebikes'>
+                    <button>More Bikes</button>
+                </Link>
             </div>
         </div>
     )
