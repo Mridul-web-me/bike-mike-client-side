@@ -1,0 +1,36 @@
+.destination img.card-img-top {
+    height: 250px;
+}
+
+.destination .card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.destination p.card-text {
+    margin: 0;
+}
+
+.destination .body1 {
+    text-align: initial;
+}
+
+.destination i.fas.fa-star,
+i.far.fa-star {
+    color: goldenrod;
+}
+
+.price {
+    background: crimson;
+    color: #fff;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.destination h3 {
+    text-decoration: none;
+    color: #040e27;
+    font-size: 26px;
+    font-weight: 500;
+}

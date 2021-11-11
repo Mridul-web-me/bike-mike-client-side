@@ -1,0 +1,48 @@
+.subscribe-content {
+    display: flex;
+    text-align: initial;
+    align-items: center;
+    padding: 30px 0;
+}
+.subscribe-content {
+    display: flex;
+    text-align: initial;
+    align-items: center;
+}
+
+input.serviceInput {
+    width: 300px;
+    margin: 0 30px;
+    padding: 5px;
+    border: none;
+}
+
+
+.subscribe input[type="submit"] {
+    background: #FF4A52;
+    color: #fff;
+    border: none;
+    padding: 10px ;
+    border-radius: 5px;
+}
+
+/* .subscribe{
+    background-image: url(../../../img/subscribe/subscribe.jpg);
+} */
+
+
+
+@media only screen and (max-width: 640px) {
+ input[type="submit"] {
+    position: relative;
+    left: 40%;
+    margin: 15px 0;
+}
+.popular .col-md-6 {
+    display: flex;
+    flex-direction: column;
+    text-align: initial;
+    justify-content: center;
+    align-items: center;
+}
+}

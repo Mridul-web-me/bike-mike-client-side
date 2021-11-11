@@ -1,0 +1,15 @@
+.fab.fa-google{
+    color: dimgrey;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.btnn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-sm-10.offset-sm-2 {
+    display: flex;
+}
