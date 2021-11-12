@@ -1,12 +1,23 @@
 import { Link } from "react-router-dom";
 import useFirebase from "../../../hooks/useFirebase";
 // import useFirebase from "../../hooks/useFirebase";
+import { useHistory, useLocation } from "react-router";
 import './Login.css'
 
 
 const Login = () => {
 
+    const location = useLocation();
+    const redirect_uri = location.state?.from || '/home';
+    console.log("come from", location.state?.from);
+    const history = useHistory()
+    const signIn = () => {
+        handleGoogleSignIn()
+            .then(result => {
+                history.push(redirect_uri)
 
+            })
+    }
     const { handleGoogleSignIn, toggleLogin, handleNameChange, handleEmailChange, handlePasswordChange, handleRegistration, error, isLogin } = useFirebase();
 
     return (
@@ -46,7 +57,7 @@ const Login = () => {
                     <button type="submit" className="btn btn-primary text-center mx-4">
                         {isLogin ? 'Login' : 'Register'}
                     </button>
-                    <Link onClick={handleGoogleSignIn} to='/login'><i className="fab fa-google"></i></Link>
+                    <Link onClick={signIn} to='/login'><i className="fab fa-google"></i></Link>
                 </div>
 
             </form>

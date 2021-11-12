@@ -1,3 +1,7 @@
+.subscribe{
+    background-color: cadetblue;
+    margin: 50px 0;
+}
 .subscribe-content {
     display: flex;
     text-align: initial;

@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Row } from 'react-bootstrap';
-import Bike from '../Bike/Bike';
+import Bike from '../../Home/Bike/Bike';
+
 
 const Products = () => {
+
     const [bikes, setBikes] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:8080/bikes')
+        fetch('https://floating-oasis-79529.herokuapp.com/bikes')
             .then(res => res.json())
             .then(data => setBikes(data));
     }, [])
-
     return (
         <div className="bikes">
             <div className="container">

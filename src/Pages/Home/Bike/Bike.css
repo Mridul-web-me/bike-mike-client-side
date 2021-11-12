@@ -28,3 +28,8 @@ i.far.fa-star {
     font-size: 26px;
     font-weight: 500;
 }
+
+.bike .card-body .bodyText {
+   
+    padding: 0 35px;
+}

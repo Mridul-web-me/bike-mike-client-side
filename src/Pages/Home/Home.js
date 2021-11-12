@@ -4,6 +4,8 @@ import Bikes from './Bikes/Bikes'
 import Reviews from './Reviews/Reviews'
 import Subscribe from './Subscribe/Subscribe'
 // import AddService from '../AddService/AddService'
+import './Home.css'
+import About from '../Shared/About/About'
 
 const Home = () => {
     return (
@@ -12,6 +14,7 @@ const Home = () => {
             <Reviews></Reviews>
             {/* <AddService></AddService> */}
             <Bikes></Bikes>
+            <About></About>
             <Subscribe></Subscribe>
         </div>
     )

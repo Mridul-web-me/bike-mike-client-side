@@ -1,0 +1,12 @@
+.about{
+    margin: 50px 0;
+}
+.right-bike{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-text p{
+    text-align: justify;
+}

@@ -1,12 +1,11 @@
 import React from 'react'
 import './Bike.css'
 import { Card, Col } from 'react-bootstrap'
-import { Link } from 'react-router-dom';
 import PlaceOrder from '../../PlaceOrder/PlaceOrder';
-// import PlaceOrder from '../../PlaceOrder/PlaceOrder';
+
 
 const Bike = ({ bike }) => {
-    const { _id, name, imgUrl, price, engine, topSpeed, mileage } = bike;
+    const { name, imgUrl, price, engine, topSpeed, mileage } = bike;
     return (
         <div className="bike">
             <Col>
