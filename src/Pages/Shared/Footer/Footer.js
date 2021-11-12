@@ -39,16 +39,16 @@ const Footer = () => {
                         <h2 className="text-white">Popular Bikes</h2>
                         <div className="row">
                             <div className="col-md-6">
-                                <Link to="/destination">Suzuki</Link>
-                                <Link to="/destination">Honda</Link>
-                                <Link to="/destination">TVS</Link>
-                                <Link to="/destination">Kawasaki</Link>
+                                <Link to="/">Suzuki</Link>
+                                <Link to="/">Honda</Link>
+                                <Link to="/">TVS</Link>
+                                <Link to="/">Kawasaki</Link>
                             </div>
                             <div className="col-md-6">
-                                <Link to="/destination">Lifan</Link>
-                                <Link to="/destination">Hero</Link>
-                                <Link to="/destination">KTM</Link>
-                                <Link to="/destination">Bajaj</Link>
+                                <Link to="/">Lifan</Link>
+                                <Link to="/">Hero</Link>
+                                <Link to="/">KTM</Link>
+                                <Link to="/">Bajaj</Link>
                             </div>
                         </div>
                     </div>
