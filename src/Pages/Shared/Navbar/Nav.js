@@ -11,7 +11,7 @@ function Nav() {
             <nav className="navbar navbar-expand-lg navbar-light bg-light ">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/home">
-                        <i class="fas fa-motorcycle"></i>Bikes
+                        <i className="fas fa-motorcycle"></i>Bikes
                         <span className="red">Mikes</span>
                     </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,23 +28,14 @@ function Nav() {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/morebikes">More Product</Link>
                             </li>
-                            <li className="nav-item dropdown">
-
-                                <button className="drpbtn">Pages <i className="fas fa-sort-down" ></i></button>
-
-                                <div className="dropdownItem">
-                                    <Link className="nav-link" to="/destination">Popular Destination</Link>
-                                    <Link className="nav-link" to="/elements">Elements</Link>
-                                </div>
-                            </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/about">Review</Link>
                             </li>
-                            <div class="dropdown">
-                                <button class="btn " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-user"></i>
+                            <div className="dropdown">
+                                <button className="btn " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i className="fas fa-user"></i>
                                 </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     {
                                         user?.email ?
                                             <ul>

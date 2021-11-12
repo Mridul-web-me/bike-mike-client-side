@@ -5,7 +5,7 @@ import Nav from './Pages/Shared/Navbar/Nav';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Home/Login/Login';
 import Products from './Pages/Shared/Products/Products';
-import Footer from './Pages/Footer/Footer';
+import Footer from './Pages/Shared/Footer/Footer';
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import AuthProvider from './hooks/authProvider'
