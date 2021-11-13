@@ -25,6 +25,11 @@ const useFirebase = () => {
                 console.log(user);
                 saveUser(user.email, user.displayName, 'PUT');
             })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+
+            });
     }
 
     useEffect(() => {

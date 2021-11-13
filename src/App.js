@@ -11,6 +11,7 @@ import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import AuthProvider from './hooks/authProvider'
 import About from './Pages/Shared/About/About';
 import NotFound from './Pages/NotFound/NotFound';
+import Reviews from './Pages/Home/Reviews/Reviews';
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
             <Route exact path='/About'>
               <About></About>
             </Route>
+            <PrivateRoute exact path='/review'>
+              <Reviews></Reviews>
+            </PrivateRoute>
             <Route exact path='*'>
               <NotFound></NotFound>
             </Route>

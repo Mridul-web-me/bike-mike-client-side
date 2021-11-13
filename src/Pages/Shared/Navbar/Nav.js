@@ -29,7 +29,7 @@ function Nav() {
                                 <Link className="nav-link" to="/morebikes">More Product</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/about">Review</Link>
+                                <Link className="nav-link" to="/review">Review</Link>
                             </li>
                             <div className="dropdown">
                                 <button className="btn " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
