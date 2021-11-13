@@ -10,6 +10,7 @@ import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import AuthProvider from './hooks/authProvider'
 import About from './Pages/Shared/About/About';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -37,7 +38,7 @@ function App() {
               <About></About>
             </Route>
             <Route exact path='*'>
-
+              <NotFound></NotFound>
             </Route>
           </Switch>
           <Footer></Footer>
