@@ -18,6 +18,7 @@ import MyOrder from './Pages/Dashboard/MyOrder/MyOrder';
 import AddBike from './Pages/AddBike/AddBike';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 import Payment from './Pages/Dashboard/Payment/Payment';
+import AdminRoute from './Pages/AdminRoute/AdminRoute';
 
 function App() {
   return (
@@ -38,12 +39,12 @@ function App() {
             <Route exact path='/morebikes'>
               <Products></Products>
             </Route>
-            <Route exact path='/makeadmin'>
+            <AdminRoute exact path='/makeadmin'>
               <MakeAdmin></MakeAdmin>
-            </Route>
-            <Route exact path='/addbike'>
+            </AdminRoute>
+            <AdminRoute exact path='/addbike'>
               <AddBike></AddBike>
-            </Route>
+            </AdminRoute>
             <PrivateRoute exact path='/placeOrder/:bikeId'>
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
@@ -59,12 +60,12 @@ function App() {
             <PrivateRoute exact path='/review'>
               <Reviews></Reviews>
             </PrivateRoute>
-            <PrivateRoute exact path='/manageBike'>
+            <AdminRoute exact path='/manageBike'>
               <ManageBike></ManageBike>
-            </PrivateRoute>
-            <PrivateRoute exact path='/manageBooking'>
+            </AdminRoute>
+            <AdminRoute exact path='/manageBooking'>
               <ManageBooking></ManageBooking>
-            </PrivateRoute>
+            </AdminRoute>
             <Route exact path='*'>
               <NotFound></NotFound>
             </Route>

@@ -1,6 +1,5 @@
-// import { Alert } from '@mui/material';
 import React, { useState } from 'react';
-// import useAuth from './../../../hooks/useAuth';
+import './MakeAdmin.css'
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
@@ -10,7 +9,7 @@ const MakeAdmin = () => {
     }
     const handleAdminSubmit = e => {
         const user = { email };
-        fetch('http://localhost:8080/users/admin', {
+        fetch('https://floating-oasis-79529.herokuapp.com/users/admin', {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -28,11 +27,11 @@ const MakeAdmin = () => {
         e.preventDefault()
     }
     return (
-        <div>
+        <div className="makeAdmin">
             <h2>Make an Admin</h2>
             <form onSubmit={handleAdminSubmit}>
                 <input type="email" onBlur={handleOnBlur} placeholder="email" />
-                <button type="submit" variant="contained">Make Admin</button>
+                <button type="submit" className="btn btn-primary" variant="contained">Make Admin</button>
             </form>
             {success && <p className="text-success">Made Admin successfully!</p>}
         </div>

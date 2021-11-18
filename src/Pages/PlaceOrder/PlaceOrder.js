@@ -47,7 +47,7 @@ const PlaceOrder = () => {
                             <input {...register("productId")} defaultValue={bikes._id} disabled />
                             <input {...register("ProductName")} defaultValue={bikes.name} />
                             <input {...register("name")} onBlur={handleOnBlur} placeholder="name" />
-                            <input {...register("email")} onBlur={handleOnBlur} placeholder={user.email} />
+                            <input {...register("email")} onBlur={handleOnBlur} value={user.email} />
                             <input {...register("Phone")} onBlur={handleOnBlur} placeholder="Phone Number" />
                             <input {...register("price")} defaultValue={bikes.price} />
                             <input type="submit" />

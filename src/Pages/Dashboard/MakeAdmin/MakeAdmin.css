@@ -1,0 +1,9 @@
+.makeAdmin{
+    margin: 50px 0;
+
+}
+.makeAdmin input[type="email"] {
+    padding: 5px;
+    margin: 10px;
+    width: 300px;
+}
