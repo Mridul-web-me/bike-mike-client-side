@@ -39,18 +39,23 @@ function Nav() {
                                     {
                                         user?.email ?
                                             <ul>
-                                                <Link
-                                                    className="nav-link login "
-                                                    onClick={logOut} to="/"
-                                                >Logout</Link>
+
                                                 <Link
                                                     className="nav-link login "
                                                     to="/myBooking"
                                                 >My Booking</Link>
                                                 <Link
                                                     className="nav-link login "
+                                                    to="/manageBike"
+                                                >Manage Bike</Link>
+                                                <Link
+                                                    className="nav-link login "
                                                     to="/manageBooking"
                                                 >Manage All Bookings</Link>
+                                                <Link
+                                                    className="nav-link login "
+                                                    onClick={logOut} to="/"
+                                                >Logout</Link>
                                             </ul>
 
                                             :

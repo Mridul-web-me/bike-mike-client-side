@@ -1,37 +1,63 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
+import { useParams } from 'react-router'
+import { useForm } from 'react-hook-form';
+import useAuth from '../../hooks/useAuth';
+// import { useParams } from 'react-router'
 // import { useParams } from 'react-router'
 
-const PlaceOrder = ({ bikes }) => {
-    // const { _id } = useParams()
-    const { _id, name } = bikes;
-    // const [bikes, setBikes] = useState([])
-    // useEffect(() => {
-    //     fetch('https://floating-oasis-79529.herokuapp.com/bikes')
-    //         .then(res => res.json())
-    //         .then(data => setBikes(data))
-    // }, [])
+const PlaceOrder = () => {
+    const { bikeId } = useParams();
+    const { register, handleSubmit, reset } = useForm();
+    const { user } = useAuth()
+    const handleOnBlur = e => {
+
+    }
+    const [bikes, setBikes] = useState({});
+    useEffect(() => {
+        fetch(`https://floating-oasis-79529.herokuapp.com/bikes/${bikeId}`)
+            .then(res => res.json())
+            .then(data => setBikes(data));
+        // console.log(data.name);
+    }, [])
+
+    const onSubmit = data => {
+        console.log(data)
+        axios.post('https://floating-oasis-79529.herokuapp.com/placeOrder', data)
+            .then(res => {
+                console.log(res);
+                if (res.data.insertedId) {
+                    alert('added successfully')
+                    reset();
+                }
+            })
+    };
+
     return (
-        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLabel">Place Order</h5>
+
+        <div className="placeOrder">
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-6">
+                        <img src={bikes.imgUrl} className="img-fluid" />
                     </div>
-                    <div className="modal-body">
-                        <input type="text" disabled placeholder={_id} />
-                        {/* <h2>{_id}</h2> */}
-                        <h2>{name}</h2>
-                        {/* <img src={imgUrl} alt="" /> */}
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-primary">Submit</button>
+                    <div className="col-md-6">
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <input {...register("productId")} value={bikes._id} disabled />
+                            <input {...register("ProductName")} value={bikes.name} disabled />
+                            <input {...register("name")} onBlur={handleOnBlur} placeholder="name" />
+                            <input {...register("email")} onBlur={handleOnBlur} placeholder={user.email} />
+                            <input {...register("Phone")} onBlur={handleOnBlur} placeholder="Phone Number" />
+                            <input {...register("price")} value={bikes.price} disabled />
+                            <input type="submit" />
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
 
+        </div>
     )
 }
 
 export default PlaceOrder
+

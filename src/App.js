@@ -11,7 +11,12 @@ import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import AuthProvider from './hooks/authProvider'
 import About from './Pages/Shared/About/About';
 import NotFound from './Pages/NotFound/NotFound';
-import Reviews from './Pages/Home/Reviews/Reviews';
+import Reviews from './Pages/Home/ReviewsForm/ReviewsForm';
+import ManageBike from './Pages/Dashboard/Manage Bike/ManageBike';
+import ManageBooking from './Pages/Dashboard/ManageBooking/ManageBooking';
+import MyBooking from './Pages/Dashboard/MyBooking/MyBooking';
+import AddService from './Pages/AddService/AddService';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 
 function App() {
   return (
@@ -32,14 +37,29 @@ function App() {
             <Route exact path='/morebikes'>
               <Products></Products>
             </Route>
-            <PrivateRoute exact path='/placeOrder/:_id'>
+            <Route exact path='/makeadmin'>
+              <MakeAdmin></MakeAdmin>
+            </Route>
+            <Route exact path='/addservice'>
+              <AddService></AddService>
+            </Route>
+            <PrivateRoute exact path='/placeOrder/:bikeId'>
               <PlaceOrder></PlaceOrder>
+            </PrivateRoute>
+            <PrivateRoute exact path='/myBooking'>
+              <MyBooking></MyBooking>
             </PrivateRoute>
             <Route exact path='/About'>
               <About></About>
             </Route>
             <PrivateRoute exact path='/review'>
               <Reviews></Reviews>
+            </PrivateRoute>
+            <PrivateRoute exact path='/manageBike'>
+              <ManageBike></ManageBike>
+            </PrivateRoute>
+            <PrivateRoute exact path='/manageBooking'>
+              <ManageBooking></ManageBooking>
             </PrivateRoute>
             <Route exact path='*'>
               <NotFound></NotFound>

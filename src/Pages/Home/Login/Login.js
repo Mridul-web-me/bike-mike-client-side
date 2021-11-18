@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
 import useFirebase from "../../../hooks/useFirebase";
-import { useLocation } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import './Login.css'
 
 
 const Login = () => {
+    const { handleGoogleSignIn, toggleLogin, handleNameChange, handleEmailChange, handlePasswordChange, handleRegistration, error, isLogin, handleOnChange } = useFirebase();
 
     const location = useLocation();
-    // const redirect_uri = location.state?.from || '/home';
-    console.log("come from", location.state?.from);
-    // const history = useHistory()
-
-    const { handleGoogleSignIn, toggleLogin, handleNameChange, handleEmailChange, handlePasswordChange, handleRegistration, error, isLogin } = useFirebase();
+    const history = useHistory()
+    const redirect_uri = location?.state?.from || '/home';
+    console.log("come from", redirect_uri);
+    // history.replace(redirect_uri);
 
     return (
         <div className="mx-5">
@@ -24,13 +24,13 @@ const Login = () => {
                     </div>
                 </div>}
                 <div className="row mb-3">
-                    <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
+                    <label htmlFor="inputEmail3" className="col-sm-2 col-form-label" onChange={handleOnChange}>Email</label>
                     <div className="col-sm-10">
                         <input onBlur={handleEmailChange} type="email" className="form-control" id="inputEmail3" required />
                     </div>
                 </div>
                 <div className="row mb-3">
-                    <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password</label>
+                    <label htmlFor="inputPassword3" className="col-sm-2 col-form-label" onChange={handleOnChange}>Password</label>
                     <div className="col-sm-10">
                         <input type="password" onBlur={handlePasswordChange} className="form-control" id="inputPassword3" required />
                     </div>

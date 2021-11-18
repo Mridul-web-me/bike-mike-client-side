@@ -1,5 +1,6 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, updateProfile, onAuthStateChanged, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
+// import { useHistory, useLocation } from "react-router";
 import initializeAuthentication from "../Pages/Home/Login/Firebase/firebase.init";
 // import initializeAuthentication from "../Pages/Login/Firebase/firebase.init";
 
@@ -13,11 +14,19 @@ const useFirebase = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
     const [isLogin, setIsLogin] = useState(false);
-    // const [logOut, setLogout] = useState('');
+    const [loginUser, setLoginUser] = useState('');
+    const [loginData, setLoginData] = useState({});
+
     const auth = getAuth();
 
+
+
+
+
     const handleGoogleSignIn = () => {
+        setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 const user = result.user;
@@ -26,10 +35,11 @@ const useFirebase = () => {
                 saveUser(user.email, user.displayName, 'PUT');
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
+                // const errorCode = error.code;
+                // const errorMessage = error.message;
 
-            });
+            })
+            .finally(() => setIsLoading(false));
     }
 
     useEffect(() => {
@@ -38,8 +48,9 @@ const useFirebase = () => {
                 console.log('inside state change', user);
                 setUser(user);
             }
+            setIsLoading(false);
         })
-    }, [])
+    }, [auth])
 
 
     const toggleLogin = e => {
@@ -56,14 +67,22 @@ const useFirebase = () => {
     const handlePasswordChange = e => {
         setPassword(e.target.value)
     }
-
+    const handleOnChange = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = { ...loginData };
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
+    }
     const handleRegistration = e => {
+        setLoginUser(loginData.email, loginData.password,)
         e.preventDefault();
         console.log(email, password);
         if (password.length < 6) {
             setError('Password Must be at least 6 characters long.')
             return;
         }
+
         if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
             setError('Password Must contain 2 upper case');
             return;
@@ -74,23 +93,30 @@ const useFirebase = () => {
         }
         else {
             registerNewUser(email, password);
+            return;
         }
 
     }
 
-    const processLogin = (email, password) => {
+    const processLogin = (email, password, location, history) => {
+        setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
                 const user = result.user;
                 console.log(user);
                 setError('');
+
             })
             .catch(error => {
                 setError(error.message);
             })
+            .finally(() => setIsLoading(false));
     }
 
     const registerNewUser = (email, password) => {
+        setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const user = result.user;
@@ -102,14 +128,14 @@ const useFirebase = () => {
             })
             .catch(error => {
                 setError(error.message);
-            })
+            }).finally(() => setIsLoading(false));
     }
 
     const logOut = () => {
         signOut(auth)
             .then(() => {
                 setUser({});
-            })
+            }).finally(() => setIsLoading(false));
     }
 
     const setUserName = () => {
@@ -127,7 +153,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('http://localhost:8080/users', {
+        fetch('https://floating-oasis-79529.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -146,7 +172,11 @@ const useFirebase = () => {
         handleRegistration,
         error,
         user, isLogin,
-        logOut
+        logOut,
+        isLoading,
+        loginUser,
+        handleOnChange,
+
     }
 }
 
