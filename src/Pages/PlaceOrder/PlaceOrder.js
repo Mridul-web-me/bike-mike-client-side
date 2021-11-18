@@ -3,8 +3,8 @@ import axios from 'axios';
 import { useParams } from 'react-router'
 import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
-// import { useParams } from 'react-router'
-// import { useParams } from 'react-router'
+import './PlaceOrder.css'
+
 
 const PlaceOrder = () => {
     const { bikeId } = useParams();
@@ -27,7 +27,7 @@ const PlaceOrder = () => {
             .then(res => {
                 console.log(res);
                 if (res.data.insertedId) {
-                    alert('added successfully')
+                    alert('Order Place successfully')
                     reset();
                 }
             })
@@ -42,13 +42,14 @@ const PlaceOrder = () => {
                         <img src={bikes.imgUrl} className="img-fluid" />
                     </div>
                     <div className="col-md-6">
+                        <h2>{bikes.name}</h2>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <input {...register("productId")} value={bikes._id} disabled />
-                            <input {...register("ProductName")} value={bikes.name} disabled />
+                            <input {...register("productId")} defaultValue={bikes._id} disabled />
+                            <input {...register("ProductName")} defaultValue={bikes.name} />
                             <input {...register("name")} onBlur={handleOnBlur} placeholder="name" />
                             <input {...register("email")} onBlur={handleOnBlur} placeholder={user.email} />
                             <input {...register("Phone")} onBlur={handleOnBlur} placeholder="Phone Number" />
-                            <input {...register("price")} value={bikes.price} disabled />
+                            <input {...register("price")} defaultValue={bikes.price} />
                             <input type="submit" />
                         </form>
                     </div>

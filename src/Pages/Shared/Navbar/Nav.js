@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import useFirebase from '../../../hooks/useFirebase';
 import './Nav.css'
 
 function Nav() {
     const { user, logOut } = useFirebase();
+    const { admin } = useAuth();
     return (
 
         <div className="menu sticky-top">
@@ -28,30 +30,51 @@ function Nav() {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/morebikes">More Product</Link>
                             </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/review">Review</Link>
-                            </li>
                             <div className="dropdown">
                                 <button className="btn " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i className="fas fa-user"></i>
+                                    {
+                                        user?.photoURL ? <img className="loginPhoto" src={user.photoURL} alt="" /> : <i className="fas fa-user"></i>
+                                    }
                                 </button>
                                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     {
                                         user?.email ?
                                             <ul>
 
-                                                <Link
-                                                    className="nav-link login "
-                                                    to="/myBooking"
-                                                >My Booking</Link>
-                                                <Link
-                                                    className="nav-link login "
-                                                    to="/manageBike"
-                                                >Manage Bike</Link>
-                                                <Link
-                                                    className="nav-link login "
-                                                    to="/manageBooking"
-                                                >Manage All Bookings</Link>
+                                                {
+                                                    !admin && <div>
+                                                        <Link
+                                                            className="nav-link login "
+                                                            to="/myOrder"
+                                                        >My Order</Link>
+                                                        <Link
+                                                            className="nav-link login "
+                                                            to="/payment"
+                                                        >Payment</Link>
+                                                        <Link
+                                                            className="nav-link login "
+                                                            to="/review"
+                                                        >Review</Link>
+                                                    </div>
+                                                }
+                                                {
+                                                    admin && <div>
+                                                        <Link
+                                                            className="nav-link login "
+                                                            to="/manageBike"
+                                                        >Manage Bike</Link>
+
+                                                        <Link
+                                                            className="nav-link login "
+                                                            to="/manageBooking"
+                                                        >Manage All Bookings</Link>
+                                                        <Link
+                                                            className="nav-link login "
+                                                            to="/addbike"
+                                                        >Add Bike</Link>
+                                                        <Link className="nav-link login " to="/makeadmin">Make Admin</Link>
+                                                    </div>
+                                                }
                                                 <Link
                                                     className="nav-link login "
                                                     onClick={logOut} to="/"

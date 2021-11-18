@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const MyBooking = () => {
+const MyOrder = () => {
     const [orders, setOrders] = useState([])
     useEffect(() => {
         fetch('https://floating-oasis-79529.herokuapp.com/placeOrder')
@@ -25,10 +25,12 @@ const MyBooking = () => {
     }
     return (
         <div>
-            <h2>Manage Bike</h2>
+            <h2>My Order</h2>
             {
                 orders.map(order => <div key={order._id}>
-                    <h3>{order.email}</h3>
+                    <h3>{order.ProductName}</h3>
+                    <h3>{order.price}</h3>
+                    <h3>{order.Phone}</h3>
                     < button onClick={() => handleDelete(order._id)} > Delete</button>
                 </div>)
 
@@ -37,4 +39,4 @@ const MyBooking = () => {
     )
 }
 
-export default MyBooking
+export default MyOrder

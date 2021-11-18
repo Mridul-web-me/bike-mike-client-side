@@ -1,0 +1,8 @@
+
+.manageSingleBike .card {
+    width: 30%;
+}
+.manageSingleBike .col {
+    display: flex;
+    justify-content: center;
+}

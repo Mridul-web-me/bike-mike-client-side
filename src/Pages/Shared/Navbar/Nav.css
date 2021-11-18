@@ -38,3 +38,8 @@ button#dropdownMenuButton1 {
     margin: 5px;
     font-size: 18px;
 }
+
+.loginPhoto {
+    width: 35px;
+    border-radius: 50%;
+}

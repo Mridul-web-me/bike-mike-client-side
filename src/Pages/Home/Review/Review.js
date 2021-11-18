@@ -1,10 +1,10 @@
 import React from 'react'
 import { Card, Col } from 'react-bootstrap'
-
+import './Review.css'
 import { FaStar } from 'react-icons/fa'
 
 const Review = ({ review }) => {
-    const { name, rating, imgUrl } = review;
+    const { name, description, imgUrl } = review;
     const stars = Array(5).fill(0);
     const styles = {
         display: "flex",
@@ -12,7 +12,7 @@ const Review = ({ review }) => {
         alignItem: "center"
     }
     return (
-        <div>
+        <div className="review">
             <Col>
                 <Card>
                     <Card.Img variant="top" src={imgUrl} />
@@ -21,7 +21,7 @@ const Review = ({ review }) => {
                             <div className="h3">{name}</div>
                         </div>
                         <div className="bodyText">
-                            <Card.Text>Price:</Card.Text>
+                            <Card.Text>{description}</Card.Text>
 
                             <div style={styles.stars}>
                                 {stars.map((_, index) => {
@@ -34,7 +34,7 @@ const Review = ({ review }) => {
                                     )
 
                                 })}
-                                {rating}
+
                             </div>
                         </div>
                     </Card.Body>

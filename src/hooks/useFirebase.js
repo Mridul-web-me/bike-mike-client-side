@@ -18,6 +18,7 @@ const useFirebase = () => {
     const [isLogin, setIsLogin] = useState(false);
     const [loginUser, setLoginUser] = useState('');
     const [loginData, setLoginData] = useState({});
+    const [admin, setAdmin] = useState(false);
 
     const auth = getAuth();
 
@@ -53,6 +54,19 @@ const useFirebase = () => {
     }, [auth])
 
 
+
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
+
+
+
+
+
     const toggleLogin = e => {
         setIsLogin(e.target.checked)
     }
@@ -83,17 +97,12 @@ const useFirebase = () => {
             return;
         }
 
-        if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-            setError('Password Must contain 2 upper case');
-            return;
-        }
-
         if (isLogin) {
             processLogin(email, password);
         }
         else {
             registerNewUser(email, password);
-            return;
+            return ('successful');
         }
 
     }
@@ -107,10 +116,9 @@ const useFirebase = () => {
                 const user = result.user;
                 console.log(user);
                 setError('');
-
             })
             .catch(error => {
-                setError(error.message);
+                // setError(error.message);
             })
             .finally(() => setIsLoading(false));
     }
@@ -176,6 +184,7 @@ const useFirebase = () => {
         isLoading,
         loginUser,
         handleOnChange,
+        admin
 
     }
 }

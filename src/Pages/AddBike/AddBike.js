@@ -1,13 +1,14 @@
 import axios from 'axios';
 import React from 'react'
 import { useForm } from 'react-hook-form';
+import './AddBike.css'
 // import { useForm } from "react-hook-form";
-const AddService = () => {
+const AddBike = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
         console.log(data)
-        axios.post('http://localhost:8080/bikes', data)
+        axios.post('https://floating-oasis-79529.herokuapp.com/bikes', data)
             .then(res => {
                 console.log(res);
                 if (res.data.insertedId) {
@@ -17,7 +18,7 @@ const AddService = () => {
             })
     };
     return (
-        <div>
+        <div className="addBike">
             <h2>Add Service</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register("name")} placeholder="name" />
@@ -32,4 +33,4 @@ const AddService = () => {
     )
 }
 
-export default AddService;
+export default AddBike;
