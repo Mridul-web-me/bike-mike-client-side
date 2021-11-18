@@ -67,7 +67,7 @@ function Nav() {
                                                         <Link
                                                             className="nav-link login "
                                                             to="/manageBooking"
-                                                        >Manage All Bookings</Link>
+                                                        >Manage All Order</Link>
                                                         <Link
                                                             className="nav-link login "
                                                             to="/addbike"
