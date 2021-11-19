@@ -7,7 +7,7 @@ const UpdateStatus = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        const url = `http://localhost:8080/placeOrder/${id}`
+        const url = `https://floating-oasis-79529.herokuapp.com/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setOrder(data))
@@ -20,7 +20,7 @@ const UpdateStatus = () => {
         setOrder(updatedStatus)
     }
     const handleUpdateStatus = e => {
-        const url = `http://localhost:8080/placeOrder/${id}`
+        const url = `https://floating-oasis-79529.herokuapp.com/${id}`
         fetch(url, {
             method: 'PUT',
             headers: {
