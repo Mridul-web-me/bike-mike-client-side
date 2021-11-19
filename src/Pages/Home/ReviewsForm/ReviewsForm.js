@@ -23,7 +23,7 @@ const Reviews = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <input {...register("name")} placeholder="name" required />
                     <input {...register("description")} placeholder="description" />
-                    <input pattern="^\d*(\.\d{0,2})?$" type="number" minlength="5"{...register("rating")} placeholder="rating" required />
+                    <input {...register("rating")} placeholder="rating" required />
                     <input {...register("imgUrl")} placeholder="Image Url" required />
                     <input type="submit" />
                 </form>
