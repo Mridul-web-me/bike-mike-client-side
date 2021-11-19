@@ -1,0 +1,11 @@
+.orderItem {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    flex-direction: column;
+}
+
+.status-btn {
+    display: flex;
+    flex-direction: column;
+}

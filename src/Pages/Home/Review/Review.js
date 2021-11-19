@@ -1,16 +1,11 @@
 import React from 'react'
 import { Card, Col } from 'react-bootstrap'
 import './Review.css'
-import { FaStar } from 'react-icons/fa'
+import Rating from 'react-rating'
 
 const Review = ({ review }) => {
-    const { name, description, imgUrl } = review;
-    const stars = Array(5).fill(0);
-    const styles = {
-        display: "flex",
-        flexDirection: "column",
-        alignItem: "center"
-    }
+    const { name, description, imgUrl, rating } = review;
+
     return (
         <div className="review">
             <Col>
@@ -23,19 +18,13 @@ const Review = ({ review }) => {
                         <div className="bodyText">
                             <Card.Text>{description}</Card.Text>
 
-                            <div style={styles.stars}>
-                                {stars.map((_, index) => {
-                                    return (
-                                        <FaStar
-                                            key={index}
+                            <Rating
+                                emptySymbol="fa fa-star-o fa-2x"
+                                fullSymbol="fa fa-star fa-2x"
+                                initialRating={rating}
+                                readonly
+                            />
 
-                                        />
-
-                                    )
-
-                                })}
-
-                            </div>
                         </div>
                     </Card.Body>
                 </Card>

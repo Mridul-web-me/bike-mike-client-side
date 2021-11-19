@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import './ManageBooking.css'
 // import './MyOrder.css'
 
 const ManageBooking = () => {
@@ -34,7 +36,12 @@ const ManageBooking = () => {
                             <h5>{order.ProductName}</h5>
                             <h5>{order.price}</h5>
                             <h5>{order.Phone}</h5>
-                            < button className="btn btn-danger" > Pending</button>
+                            <div className="status-btn">
+                                <Link to={`/orders/update/${order._id}`}>
+                                    <button className='btn btn-danger mb-2'>Update Status</button>
+                                </Link>
+                                < button className="btn btn-danger" > Shipped</button>
+                            </div>
                         </div>
 
                     </div>)

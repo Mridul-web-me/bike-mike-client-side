@@ -39,17 +39,16 @@ const PlaceOrder = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-6">
-                        <img src={bikes.imgUrl} className="img-fluid" />
+                        <img src={bikes.imgUrl} alt="" className="img-fluid" />
                     </div>
                     <div className="col-md-6">
                         <h2>{bikes.name}</h2>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <input {...register("productId")} defaultValue={bikes._id} disabled />
-                            <input {...register("ProductName")} defaultValue={bikes.name} />
+                            <input {...register("ProductName")} defaultValue={bikes.name} onBlur={handleOnBlur} />
                             <input {...register("name")} onBlur={handleOnBlur} placeholder="name" />
                             <input {...register("email")} onBlur={handleOnBlur} value={user.email} />
                             <input {...register("Phone")} onBlur={handleOnBlur} placeholder="Phone Number" />
-                            <input {...register("price")} defaultValue={bikes.price} />
+                            <input {...register("price")} onBlur={handleOnBlur} defaultValue={bikes.price} />
                             <input type="submit" />
                         </form>
                     </div>

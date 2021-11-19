@@ -19,6 +19,7 @@ import AddBike from './Pages/AddBike/AddBike';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 import Payment from './Pages/Dashboard/Payment/Payment';
 import AdminRoute from './Pages/AdminRoute/AdminRoute';
+import UpdateStatus from './Pages/Dashboard/UpdateStatus/UpdateStatus';
 
 function App() {
   return (
@@ -57,6 +58,9 @@ function App() {
             <Route exact path='/About'>
               <About></About>
             </Route>
+            <PrivateRoute exact path='/orders/update/:id'>
+              <UpdateStatus></UpdateStatus>
+            </PrivateRoute>
             <PrivateRoute exact path='/review'>
               <Reviews></Reviews>
             </PrivateRoute>

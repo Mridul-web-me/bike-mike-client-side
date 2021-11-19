@@ -12,7 +12,7 @@ const Login = () => {
     const history = useHistory()
     const redirect_uri = location?.state?.from || '/home';
     console.log("come from", redirect_uri);
-    // history.push(redirect_uri )
+    // history.push(redirect_uri)
 
 
 

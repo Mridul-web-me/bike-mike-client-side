@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 // import { Card, Col } from 'react-bootstrap'
 import ManageSingleBike from '../ManageSingleBike/ManageSingleBike'
+import './ManageBike.css'
 
 const ManageBike = () => {
     const [bikes, setBikes] = useState([])

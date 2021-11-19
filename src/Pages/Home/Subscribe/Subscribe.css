@@ -14,7 +14,7 @@
     align-items: center;
 }
 
-input.serviceInput {
+.subscribe input.serviceInput {
     width: 300px;
     margin: 0 30px;
     padding: 5px;
@@ -48,5 +48,8 @@ input.serviceInput {
     text-align: initial;
     justify-content: center;
     align-items: center;
+}
+.subscribe input.serviceInput {
+    margin: 0px;
 }
 }

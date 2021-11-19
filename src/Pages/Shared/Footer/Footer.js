@@ -7,26 +7,24 @@ const Footer = () => {
         <div className="footer">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-3">
-                        <div className="address">
-                            <Link className="navbar-brand" to="/home">
-                                <i className="fas fa-motorcycle"></i>
-                                Bikes<span>Mikes</span>
-                            </Link>
-                            <p><i className="fas fa-map-marker-alt"></i>
-                                Level-4, 06,  Parimal Tower, N.S Road, Kushtia
-                            </p>
+                    <div className="col-md-3 address">
+                        <Link className="navbar-brand" to="/home">
+                            <i className="fas fa-motorcycle"></i>
+                            Bikes<span>Mikes</span>
+                        </Link>
+                        <p><i className="fas fa-map-marker-alt"></i>
+                            Level-4, 06,  Parimal Tower, N.S Road, Kushtia
+                        </p>
 
-                            <p>
-                                <i className="fas fa-phone-alt"></i>
-                                +880 1312 812128
-                            </p>
-                            <p><i className="fas fa-envelope"></i>
-                                contact@bikesmikes.com
-                            </p>
-                        </div>
+                        <p>
+                            <i className="fas fa-phone-alt"></i>
+                            +880 1312 812128
+                        </p>
+                        <p><i className="fas fa-envelope"></i>
+                            contact@bikesmikes.com
+                        </p>
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-md-3 company">
                         <h2 className="text-white">Company</h2>
                         <div className="companyLink">
                             <Link to="/">Pricing</Link>

@@ -43,3 +43,7 @@ button#dropdownMenuButton1 {
     width: 35px;
     border-radius: 50%;
 }
+
+a.nav-link.login {
+    text-align: center;
+}

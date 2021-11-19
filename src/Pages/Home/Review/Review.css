@@ -9,3 +9,11 @@
     width: 250px;
     align-self: center;
 }
+
+span.fa.fa-star-o.fa-2x {
+    color: goldenrod;
+}
+
+span.fa.fa-star.fa-2x {
+    color: goldenrod;
+}
