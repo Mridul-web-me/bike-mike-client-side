@@ -44,7 +44,7 @@ const ManageSingleBike = ({ bike }) => {
                             <Card.Text>Price:</Card.Text>
                             <Card.Text> {price}</Card.Text>
                         </div>
-                        < button onClick={() => handleDelete(bike._id)} > Delete</button>
+                        < button onClick={() => handleDelete(bike._id)} className="btn btn-danger"> Delete</button>
                     </Card.Body>
 
                 </Card>

@@ -46,10 +46,10 @@ const UpdateStatus = () => {
             <h1 className='text-danger mb-3'>Update Status</h1>
             <form onSubmit={handleUpdateStatus}>
                 <input onChange={handleStatusChange} type="text" value={order.status || ""} />
-                <input type="submit" value='Update' />
+                <input type="submit" className="btn btn-secondary mx-4" value='Update' />
             </form>
             <Link to='/manageOrder'>
-                <button className='my-3 px-5 btn btn-success'>Back</button>
+                <button className='my-3 px-5 btn btn-warning'>Back</button>
             </Link>
         </div>
     );

@@ -38,9 +38,9 @@ const ManageBooking = () => {
                             <h5>{order.Phone}</h5>
                             <div className="status-btn">
                                 <Link to={`/orders/update/${order._id}`}>
-                                    <button className='btn btn-danger mb-2'>Update Status</button>
+                                    <button className='btn btn-primary mb-2'>Update Status</button>
                                 </Link>
-                                < button className="btn btn-danger" > Shipped</button>
+                                < button className="btn btn-success" > Shipped</button>
                             </div>
                         </div>
 
